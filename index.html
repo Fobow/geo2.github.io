@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="EGGS: Exchangeable 2D/3D Gaussian Splatting for Geometry-Appearance Balanced Novel View Synthesis.">
+  <meta name="keywords" content="3DGS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EGGS: Exchangeable 2D/3D Gaussian Splatting for Geometry-Appearance Balanced Novel View Synthesis</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://yanchengzhang.com/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://e3dbench.github.io/">
+            E3D-Bench
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">E<span style="color:#3399ff;">G</span><span style="color:#ff6633;">G</span>S: Exchangeable <span style="color:#3399ff;">2D</span>/<span style="color:#ff6633;">3D</span> Gaussian Splatting for Geometry-Appearance Balanced Novel View Synthesis</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yanchengzhang.com/">Yancheng Zhang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://guangyusun.com/">Guangyu Sun</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.crcv.ucf.edu/chenchen/">Chen Chen</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Central Florida</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2512.02932"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2512.02932"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Supp</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Fobow/EGGS"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="./static/images/teaser.png" alt="EGGS" style="width: 100%; height: auto;">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Novel view synthesis (NVS) is crucial in computer vision and graphics, with wide applications in AR, VR, and autonomous driving. While 3D Gaussian Splatting (3DGS) enables real-time rendering with high appearance fidelity, it suffers from multi-view inconsistencies, limiting geometric accuracy. In contrast, 2D Gaussian Splatting (2DGS) enforces multi-view consistency but compromises texture details. To address these limitations, we propose Exchangeable Gaussian Splatting (EGGS), a hybrid representation that integrates 2D and 3D Gaussians to balance appearance and geometry. To achieve this, we introduce Hybrid Gaussian Rasterization for unified rendering, Adaptive Type Exchange for dynamic adaptation between 2D and 3D Gaussians, and Frequency-Decoupled Optimization that effectively exploits the strengths of each type of Gaussian representation. Our CUDA-accelerated implementation ensures efficient training and inference. Extensive experiments demonstrate that EGGS outperforms existing methods in rendering quality, geometric accuracy, and efficiency, providing a practical solution for high-quality NVS.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered"><h2 class="title is-3">Videos</h2></div>
+    <div class="container">
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title has-text-centered">LLFF Dataset</h3>
+        <h3 class="title is-4 video-section-title">Fern</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_llff_fern.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_llff_fern.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_llff_fern.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title">Room</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_llff_room.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_llff_room.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_llff_room.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title">Trex</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_llff_trex.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_llff_trex.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_llff_trex.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title has-text-centered">Tanks&Temples Dataset</h3>
+        <h3 class="title is-4 video-section-title">Horse</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_tt_horse.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_tt_horse.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_tt_horse.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title">Francis</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_tt_francis.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_tt_francis.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_tt_francis.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title">Family</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_tt_family.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_tt_family.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_tt_family.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title">Barn</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_tt_barn.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_tt_barn.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_tt_barn.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title has-text-centered">Mip-NeRF360 Dataset</h3>
+        <h3 class="title is-4 video-section-title">Flowers</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_mip_flowers.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_mip_flowers.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_mip_flowers.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3 class="title is-4 video-section-title">Room</h3>
+        <div class="video-row">
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/3dgs_mip_room.mp4" type="video/mp4">
+            </video>
+            <figcaption>3DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/2dgs_mip_room.mp4" type="video/mp4">
+            </video>
+            <figcaption>2DGS</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay controls muted loop playsinline>
+              <source src="./static/video/ours_mip_room.mp4" type="video/mp4">
+            </video>
+            <figcaption>Ours</figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quantitative Comparisons</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-left small-section-title">Comparison on appearance.</h3>
+        <div class="content has-text-justified">
+          <img src="./static/images/app.jpg" alt="app" style="width: 100%; height: auto;">
+          <p>
+            EGGS achieves the best balance between geometric accuracy and visual quality. Unlike 3DGS methods that produce blurry geometry and 2DGS variants that oversmooth textures, EGGS effectively combines both representations to recover sharp details and clean geometry, outperforming all baselines on Mip-NeRF360, LLFF, and Tanks & Temples.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-left small-section-title">Comparison on geometry accuracy.</h3>
+        <div class="content has-text-justified">
+          <img src="./static/images/geo.jpg" alt="app" style="width: 100%; height: auto;">
+          <p>
+            EGGS delivers sharper and more accurate geometry than 3DGS while maintaining strong appearance quality. Compared to methods like 2DGS and SUGAR that focus solely on surface reconstruction, EGGS achieves a superior balance—producing clean, detailed depth maps and competitive geometry without sacrificing visual fidelity.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{
+      anonymous2025eggs,
+      title={{EGGS}: Exchangeable 2D/3D Gaussian Splatting for Geometry-Appearance Balanced Novel View Synthesis},
+      author={Anonymous},
+      booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+      year={2025},
+      url={https://openreview.net/forum?id=25C8oC1pb2}
+    }
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Template from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies.github.io</a> under <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
