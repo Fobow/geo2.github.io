@@ -111,7 +111,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2512.02932"
+                <a href="https://arxiv.org/abs/2603.25819"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -120,7 +120,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2512.02932"
+                <a href="https://arxiv.org/abs/2603.25819"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -140,7 +140,7 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/Fobow/EGGS"
+                <a href="https://arxiv.org/abs/2603.25819"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -166,14 +166,147 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="./static/images/teaser.png" alt="GEO" style="width: 100%; height: auto;">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Cross-view geo-spatial learning consists of two important tasks: Cross-View Geo-Localization (CVGL) and Cross-View Image Synthesis (CVIS), both of which rely on establishing geometric correspondences between ground and aerial views. Recent Geometric Foundation Models (GFMs) have demonstrated strong capabilities in extracting generalizable 3D geometric features from images, but their potential in cross-view geo-spatial tasks remains underexplored. In this work, we present Geo^2, a unified framework that leverages Geometric priors from GFMs (e.g., VGGT) to jointly perform geo-spatial tasks, CVGL and bidirectional CVIS. Despite the 3D reconstruction ability of GFMs, directly applying them to CVGL and CVIS remains challenging due to the large viewpoint gap between ground and aerial imagery. We propose GeoMap, which embeds ground and aerial features into a shared 3D-aware latent space, effectively reducing cross-view discrepancies for localization. This shared latent space naturally bridges cross-view image synthesis in both directions. To exploit this, we propose GeoFlow, a flow-matching model conditioned on geometry-aware latent embeddings. We further introduce a consistency loss to enforce latent alignment between the two synthesis directions, ensuring bidirectional coherence. Extensive experiments on standard benchmarks, including CVUSA, CVACT, and VIGOR, demonstrate that Geo^2 achieves state-of-the-art performance in both localization and synthesis, highlighting the effectiveness of 3D geometric priors for cross-view geo-spatial learning.
+          </p>
+        </div>
+        <img src="./static/images/overview.png" alt="GEO" style="width: 100%; height: auto;">
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered"><h2 class="title is-3">Cross-View Geo-Localization</h2></div>
+    <h3 class="title is-4 video-section-title has-text-centered">Visualization of Top 5 Retrieval Results</h3>
+    <div class="container">
+      <img src="./static/images/top5.png" alt="GEO" style="width: 100%; height: auto;">
+    </div>
+  </div>
+</section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quantitative Comparisons</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-left small-section-title">Comparison on CVUSA and CVACT.</h3>
+        <div class="content has-text-justified">
+          <img src="./static/images/res_geo1.png" alt="app" style="width: 100%; height: auto;">
+          <p>
+            Our method achieves the best performance on both CVUSA and CVACT.
+         </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-left small-section-title">Cross-dataset and Cross-area Evaluation.</h3>
+        <div class="content has-text-justified">
+          <img src="./static/images/res_geo2.png" alt="app" style="width: 100%; height: auto;">
+          <p>
+            Our method achieves the best performance on both CVUSA and CVACT.
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered"><h2 class="title is-3">Cross-View Imgae-Synthesis</h2></div>
+    <h3 class="title is-4 video-section-title has-text-centered">Visualization of Generated Images</h3>
+    <h3 class="title is-4 video-section-title has-text-centered">CVUSA</h3>
+    <div class="container">
+      <img src="./static/images/gen_cvusa.png" alt="GEO" style="width: 100%; height: auto;">
+    </div>
+    <h3 class="title is-4 video-section-title has-text-centered">CVACT</h3>
+    <div class="container">
+      <img src="./static/images/gen_cvact.png" alt="GEO" style="width: 100%; height: auto;">
+    </div>
+    <h3 class="title is-4 video-section-title has-text-centered">VIGOR</h3>
+    <div class="container">
+      <img src="./static/images/gen_vigor.png" alt="GEO" style="width: 100%; height: auto;">
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quantitative Comparisons</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-left small-section-title">Comparison on Ground-to-Satellite image synthesis.</h3>
+        <div class="content has-text-justified">
+          <img src="./static/images/res_g2s.png" alt="app" style="width: 100%; height: auto;">
+          <p>
+            Our method achieves the best performance on both CVUSA and CVACT.
+         </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-5 has-text-left small-section-title">Comparison on Satellite-to-Ground image synthesis .</h3>
+        <div class="content has-text-justified">
+          <img src="./static/images/res_s2g.png" alt="app" style="width: 100%; height: auto;">
+          <p>
+            Our method achieves the best performance on both CVUSA and CVACT.
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{
-
+    <pre><code>@article{zhang2026geo,
+      title={Geo $\^{}$\backslash$textbf $\{$2$\}$ $: Geometry-Guided Cross-view Geo-Localization and Image Synthesis},
+      author={Zhang, Yancheng and Zhang, Xiaohan and Sun, Guangyu and Lyu, Zonglin and Wshah, Safwan and Chen, Chen},
+      journal={arXiv preprint arXiv:2603.25819},
+      year={2026}
     }
 </code></pre>
   </div>
